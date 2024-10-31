@@ -24,9 +24,11 @@ public class OrderManager {
 		return OrderManager.ADD_RECORD_SUCCESS;
 	}
 
-	public void add (int id, String customer, int sizeIndex, int qty) {
-		OrderRecord newRecord = new OrderRecord(id, customer, sizeIndex, qty);
-		this.orderRecords = OrderRecordsModifier.add(this.orderRecords, newRecord);
+	public void add (int id, String customer, int sizeIndex, int qty, int status) {
+		this.orderRecords = OrderRecordsModifier.add(
+			this.orderRecords,
+			new OrderRecord(id, customer, sizeIndex, qty, status)
+		);
 	}
 
 	public int remove (int id) {
@@ -67,6 +69,14 @@ public class OrderManager {
 		}
 
 		return searchData;
+	}
+
+	public OrderRecord search (int id) {
+		for (OrderRecord record : this.orderRecords) {
+			if (OrderRecord.getID(record) == id) return record;
+		}
+
+		return null;
 	}
 
 	public int getNextOrderID () {

@@ -2,6 +2,7 @@ class Main {
 	public static void main (String[] args) {
 		importSaveData();
 		new MainWindow();
+		new ViewReportsWindow();
 	}
 
 	public static void importSaveData () {
@@ -15,10 +16,11 @@ class Main {
 			String customer = data[1];
 			int sizeIndex = Integer.parseInt(data[2]);
 			int qty = Integer.parseInt(data[3]);
+			int status = Integer.parseInt(data[4]);
 
 			if (id > maximumOrderID) maximumOrderID = id;
 
-			manager.add(id, customer, sizeIndex, qty);
+			manager.add(id, customer, sizeIndex, qty, status);
 		}
 
 		manager.setCurrentOrderID(maximumOrderID + 1);

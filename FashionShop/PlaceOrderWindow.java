@@ -35,7 +35,7 @@ public class PlaceOrderWindow extends ChildWindow {
 		CustomJLabel sizeLbl = new CustomJLabel("Size");
 		CustomJLabel qtyLbl = new CustomJLabel("Qty");
 		CustomJLabel amountLbl = new CustomJLabel("Amount");
-		this.idValue = new CustomJLabel(OrderRecord.idToString(CommonResources.orderManager.getNextOrderID()));
+		this.idValue = new CustomJLabel(CommonResources.orderManager.getNextOrderID() + "");
 		this.amountValue = new CustomJLabel("0.00");
 
 		// Text Fields
@@ -74,7 +74,7 @@ public class PlaceOrderWindow extends ChildWindow {
 		);
 
 		if (response == OrderManager.ADD_RECORD_SUCCESS) {
-			this.idValue.setText(OrderRecord.idToString(CommonResources.orderManager.getNextOrderID()));
+			this.idValue = new CustomJLabel(CommonResources.orderManager.getNextOrderID() + "");
 			this.phoneValue.setText("");
 			this.sizeValue.setText("");
 			this.qtyValue.setText("");

@@ -45,10 +45,9 @@ public class SearchCustomerWindow extends ChildWindow {
 	private boolean searchCustomerOrders () {
 		String customer = this.phoneValue.getText();
 
-		if (customer == null || customer.equals("")) return false;
+		if (customer == null || !OrderRecordVilidater.isValidPhone(customer)) return false;
 		if (customer.length() == 9) customer = '0' + customer;
-		if (!OrderRecordVilidater.isValidPhone(customer)) return false;
-		
+	
 		this.tableObject.setRecords(CommonResources.orderManager.search(customer));
 		this.tableObject.updateRecords();
 		this.pack();
