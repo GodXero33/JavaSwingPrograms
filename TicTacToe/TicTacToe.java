@@ -53,7 +53,7 @@ public class TicTacToe extends JFrame {
 
 		for (TicTacToeBtn[] btnRow : this.btns) {
 			for (TicTacToeBtn btn : btnRow) {
-				btn.addActionListener(new ActionListener () {
+				btn.addActionListener(new ActionListener() {
 					public void actionPerformed (ActionEvent event) {
 						thisGameWindow.click(btn);
 					}
